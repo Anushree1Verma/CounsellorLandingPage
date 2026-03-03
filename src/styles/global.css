@@ -14,7 +14,7 @@ html {
 
 body {
   font-family: "Bellfair", serif;
-  background-color: #f9f9f9;
+  background: none; /* allow bubbles to show */
   color: #2f3e3a;
   line-height: 1.7;
 }
@@ -327,4 +327,84 @@ a {
 /* Icon styling */
 .contact-item svg {
   color: #6b8f82; /* sage accent */
+}
+
+/* ---------- PAGE WRAPPER ---------- */
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ---------- GLOBAL BUBBLES (VISIBLE OVER SECTIONS) ---------- */
+
+.global-bubbles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;   /* Above backgrounds */
+}
+
+/* Ensure content sits above bubbles */
+.page-wrapper > *:not(.global-bubbles) {
+  position: relative;
+  z-index: 3;
+}
+
+/* ---------- GLOBAL BUBBLE SHAPES ---------- */
+
+.g-bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.50;
+
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(255, 255, 255, 0.9),
+    rgba(210, 230, 220, 0.4),
+    rgba(180, 210, 200, 0.3)
+  );
+
+  box-shadow:
+    inset -12px -12px 25px rgba(255, 255, 255, 0.5),
+    inset 10px 10px 20px rgba(0, 0, 0, 0.05);
+
+  animation: floatAmbient 40s ease-in-out infinite;
+}
+
+/* Individual bubble sizes + positions */
+
+.b1 { width: 220px; height: 220px; top: 10%; left: 8%; }
+.b2 { width: 300px; height: 300px; top: 50%; left: 70%; animation-delay: -8s; }
+.b3 { width: 150px; height: 150px; top: 30%; left: 40%; animation-delay: -15s; }
+.b4 { width: 180px; height: 180px; top: 75%; left: 15%; animation-delay: -20s; }
+.b5 { width: 260px; height: 260px; top: 85%; left: 60%; animation-delay: -25s; }
+.b6 { width: 120px; height: 120px; top: 15%; left: 85%; animation-delay: -30s; }
+
+/* Floating animation */
+
+@keyframes floatAmbient {
+  0%   { transform: translate(0px, 0px); }
+  25%  { transform: translate(20px, -30px); }
+  50%  { transform: translate(-25px, -60px); }
+  75%  { transform: translate(15px, -30px); }
+  100% { transform: translate(0px, 0px); }
+}
+
+.page-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  background: linear-gradient(
+    180deg,
+    #fdecef 0%,      /* services pink */
+    #f7dfe6 20%,
+    #f3e9ec 35%,
+    #e9f2ee 50%,     /* transition */
+    #e4efe9 65%,
+    #dceae3 80%,
+    #d0e3db 100%     /* contact sage */
+  );
 }
