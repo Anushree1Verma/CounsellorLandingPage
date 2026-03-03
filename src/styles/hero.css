@@ -1,0 +1,213 @@
+.hero {
+  background: linear-gradient(
+     180deg,
+    #cfe3da 0%,     /* deeper sage green */
+    #eef3ee 55%,    /* soft warm off-white */
+    #fdecef 100% 
+  );
+  padding: 8rem 3rem;
+  text-align: center;
+}
+
+.hero-content {
+  max-width: 850px;
+  margin: auto;
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.hero h3 {
+  font-family: "Bellfair", serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #3f524c;
+}
+
+.hero p {
+  font-size: 1.15rem;
+  max-width: 1000px;
+  margin: 0 auto 3rem;
+  color: #4a5c57;
+}
+
+
+.hero-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+}
+
+.primary-btn {
+  background-color: #f2b5c4; /* light pink */
+  font-family: "Bellfair", serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  padding: 0.9rem 1.6rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background-color:#f2b5c4; 
+  font-family: "Bellfair", serif;
+  font-size: 1.15rem;
+  font-weight: 400;
+  border: none;
+  padding: 0.9rem 1.6rem;
+  border-radius: 30px;
+  cursor: pointer;
+}
+.primary-btn,
+.secondary-btn {
+  display: inline-block;
+  cursor: pointer;
+  font-family: inherit;
+}
+.primary-btn:hover,
+.secondary-btn:hover {
+  opacity: 0.9;
+}
+
+.primary-btn:focus,
+.secondary-btn:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(107, 143, 130, 0.35);
+}
+
+a 
+{
+  color: inherit;
+  text-decoration: none;
+}
+@media (max-width: 600px) {
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
+/* ---------- HERO BACKGROUND BUBBLES (REAL BUBBLES) ---------- */
+
+.hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Base bubble */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 40.0;
+
+  animation-name: bubbleDrift;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+
+  box-shadow:
+    inset -10px -10px 25px rgba(255, 255, 255, 0.35),
+    inset 8px 8px 20px rgba(0, 0, 0, 0.08),
+    0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Blush variation */
+.bubble-blush {
+  background:
+    radial-gradient(
+      circle at 30% 25%,
+      rgba(255, 255, 255, 0.95),
+      rgba(253, 236, 239, 0.45) 40%,
+      rgba(242, 205, 214, 0.35) 70%,
+      rgba(230, 190, 200, 0.25) 100%
+    );
+}
+
+/* Bubble positions & sizes */
+.bubble-1 {
+  width: 240px;
+  height: 240px;
+  top: 10%;
+  left: 6%;
+  animation-duration: 26s;
+}
+
+.bubble-2 {
+  width: 340px;
+  height: 340px;
+  bottom: 6%;
+  right: 6%;
+  animation-duration: 34s;
+  animation-direction: alternate;
+}
+
+.bubble-3 {
+  width: 180px;
+  height: 180px;
+  top: 42%;
+  right: 28%;
+  animation-duration: 22s;
+}
+
+.bubble-4 {
+  width: 140px;
+  height: 140px;
+  bottom: 24%;
+  left: 24%;
+  animation-duration: 30s;
+  animation-direction: alternate-reverse;
+}
+
+.bubble-5 {
+  width: 100px;
+  height: 100px;
+  top: 22%;
+  right: 46%;
+  animation-duration: 18s;
+}
+
+/* REAL bubble movement */
+@keyframes bubbleDrift {
+  0% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+  25% {
+    transform: translate(18px, -28px) scale(1.03) rotate(2deg);
+  }
+  50% {
+    transform: translate(-22px, -46px) scale(0.97) rotate(-3deg);
+  }
+  75% {
+    transform: translate(14px, -26px) scale(1.02) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) scale(1) rotate(0deg);
+  }
+}
+
+
+/* Keep text above bubbles */
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Mobile cleanup */
+@media (max-width: 768px) {
+  .bubble-2,
+  .bubble-5 {
+    display: none;
+  }
+}
+
+
+
